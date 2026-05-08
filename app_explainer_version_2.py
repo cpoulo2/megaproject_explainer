@@ -196,7 +196,13 @@ Normally that would add about \${added_eav:,.0f} in new taxable property.
 
 But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
 
-That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} would not be taxed in the first year alone.</font></b>
+That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} would not be taxed.</font></b>
+
+And that is just for one year. The lost money adds up over time.
+
+Think of it this way: if I owe you $1 today and another $1 tomorrow, then I owe you $2 total.
+
+This megaproject bill works the same way, but with millions or even billions of dollars over many years.
 
 Now let’s find a tax rate to see how big the tax break would be.
 
