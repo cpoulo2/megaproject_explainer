@@ -47,15 +47,16 @@ def main():
 
     st.markdown("""<h1>Illinois Megaproject Tax Break Calculator</h1>""",unsafe_allow_html=True)
 
-    if 'stage' not in st.session_state:
-        st.session_state.stage = 0
-        
-        st.markdown("""<p>A new law called the Megaproject bill (HB0910) is being talked about in Illinois government right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
+    st.markdown("""<p>A new law called the Megaproject bill (HB0910) is being talked about in Illinois government right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
 
 This tool helps explain how the tax break works and shows how much money your school district could lose.
 
 Follow the steps below to learn how it works.
 </p>""",unsafe_allow_html=True)
+
+    if 'stage' not in st.session_state:
+        st.session_state.stage = 0
+        
     def set_state(i):
         st.session_state.stage = i
 
@@ -185,6 +186,8 @@ Pick an example megaproject below or type in your own amount to get started.
         special_payment_percentage = .1
         special_payment_min = (special_payment_percentage * (tax_revenue_year1))/2
 
+    
+
 
     if st.session_state.stage >= 2:
         st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build.
@@ -193,7 +196,7 @@ Normally that would add about \${base_eav:,.0f} in new taxable property.
 
 But the Megaproject Bill says very big projects — starting at $100 million — do not have to pay property taxes on new buildings for many years.
 
-That means <b><font style="background-color:#FFC107;">this ${base_eav:,.0f} would not be taxed.</font></b>
+That means <b><font style="background-color:#FFC107;">this ${base_eav:,.0f} would not be taxed in the first year alone.</font></b>
 
 Now let’s find a tax rate to see how big the tax break would be.
 
@@ -214,8 +217,11 @@ Now let’s find a tax rate to see how big the tax break would be.
 
         col1,col2,col3 = st.columns([1,2,1])
 
-        with col2:
-            st.button("Click here to calculate the tax break!",on_click=set_state,args=[3])
+        st.button("Click here to calculate the tax break!",on_click=set_state,args=[3])
+
+        st.button('Go Back', on_click=set_state, args=[1])
+
+
 
     if st.session_state.stage >= 3:
 
