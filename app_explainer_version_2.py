@@ -264,7 +264,7 @@ Let’s find a tax rate to see how big that tax break would be for {project_name
                 if project_cost > 2_000_000_000:
                     st.markdown(f"""
 <p>
-{project} costs {project_cost_text}. Projects over $2 billion qualify it for a {tax_break_term} year tax break.
+{project} costs {project_cost_text}. Projects over $2 billion qualify for a {tax_break_term} year tax break.
 
 We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
 
@@ -280,7 +280,7 @@ For projects under \$2 billion, owners have to pay some money back to schools, p
                 if project_cost > 1_000_000_000 and project_cost <= 2_000_000_000:
                     st.markdown(f"""
 <p>
-The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify it for a {tax_break_term} year tax break.
+The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify for a {tax_break_term} year tax break.
 
 We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
 
@@ -298,7 +298,7 @@ Even after this payment, by the end of the {tax_break_term}-year tax break, your
                 if project_cost >= 100_000_000 and project_cost < 1_000_000_000:
                     st.markdown(f"""
 <p>
-The {project_name_2} costs {project_cost_text}. Projects under $1 billion qualify it for a {tax_break_term} year tax break.
+The {project_name_2} costs {project_cost_text}. Projects under $1 billion qualify for a {tax_break_term} year tax break.
 
 We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
 
