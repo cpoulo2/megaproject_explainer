@@ -47,7 +47,7 @@ def main():
 
     st.markdown("""<h1>Illinois Megaproject Tax Break Calculator</h1>""",unsafe_allow_html=True)
 
-    st.markdown("""<p>A new bill called the Megaproject bill (HB0910) is being talked about in Illinois government right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
+    st.markdown("""<p>A new bill called the Megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
 
 This tool helps explain how the tax break works and shows how much money your school district could lose.
 
