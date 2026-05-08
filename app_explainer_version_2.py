@@ -127,7 +127,7 @@ Pick an example megaproject below or type in your own amount to get started.
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate 
         project_name = "a Google headquarters"
-        project_name_2 = project_name
+        project_name_2 = project
             
     if project == "Amazon warehouse":
 
@@ -140,7 +140,7 @@ Pick an example megaproject below or type in your own amount to get started.
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate
         project_name = "an Amazon warehouse"
-        project_name_2 = project_name
+        project_name_2 = project
 
     elif project == "McCaskeys’ Stadium for the Bears and Entertainment Center":
 
@@ -153,7 +153,7 @@ Pick an example megaproject below or type in your own amount to get started.
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate
         project_name = "the McCaskeys’ Stadium for the Bears and Entertainment Center"
-        project_name_2 = project_name
+        project_name_2 = project
 
     elif project == "Enter Custom Amount":
 
