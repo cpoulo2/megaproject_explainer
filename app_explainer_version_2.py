@@ -200,11 +200,11 @@ That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} wou
 
 And that is just for one year. The lost money adds up over time.
 
-Think of it this way: if I owe you $1 today and another $1 tomorrow, then I owe you $2 total.
+Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I owe you \$2 total.
 
 This megaproject bill works the same way, but with millions or even billions of dollars over many years.
 
-Now let’s find a tax rate to see how big the tax break would be.
+Let’s find a tax rate to see how big that tax break would be.
 
 </p>""",unsafe_allow_html=True)
         # Find Chicago Public Schools in index of df["District"].unique()
