@@ -65,7 +65,7 @@ Follow the steps below to learn how it works.
 
     if st.session_state.stage >= 1:
         st.markdown(f"""<h2>Step 1. Pick a megaproject.</h2>""",unsafe_allow_html=True)
-        st.markdown(f"""<p>The megaproject bill lets owners of very big building projects  — starting at $100 million — get a break on property taxes for the new buildings they add. Think things like a new corporate headquarters, a new stadium, or a new warehouse. 
+        st.markdown(f"""<p>Megaprojects can include things like a new corporate headquarters, a new stadium, or a new warehouse. Anything costing $100 million or more qualifies for a tax break. 
         
 Pick an example megaproject below or type in your own amount to get started.
 
