@@ -202,7 +202,7 @@ And that is just for one year. The lost money adds up over time.
 
 Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I owe you \$2 total.
 
-This megaproject bill works the same way, but with millions or even billions of dollars over many years.
+This megaproject bill works the same way, but with tens of thousands of dollars over many years.
 
 Let’s find a tax rate to see how big that tax break would be for {project_name}.
 
