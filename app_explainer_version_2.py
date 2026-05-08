@@ -266,7 +266,7 @@ Let’s find a tax rate to see how big that tax break would be for {project_name
 <p>
 {project} costs {project_cost_text}. Projects over $2 billion qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -282,7 +282,7 @@ For projects under \$2 billion, owners have to pay some money back to schools, p
 <p>
 The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by applyiny your tax rate to the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -300,7 +300,7 @@ Even after these payments, by the end of the {tax_break_term}-year tax break, yo
 <p>
 The {project_name_2} costs {project_cost_text}. Projects between $500 million and $1 billion qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by applyiny your tax rate to the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -318,7 +318,7 @@ Even after these payments, by the end of the {tax_break_term}-year tax break, yo
 <p>
 The {project_name_2} costs {project_cost_text}. Projects between $100 million and $500 million qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by applyiny your tax rate to the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
