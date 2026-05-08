@@ -190,7 +190,7 @@ Pick an example megaproject below or type in your own amount to get started.
 
 
     if st.session_state.stage >= 2:
-        st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build.
+        st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build. This quali
 
 Normally that would add about \${added_eav:,.0f} in new taxable property.
 
@@ -223,7 +223,7 @@ Let’s find a tax rate to see how big that tax break would be.
 
         col1,col2,col3 = st.columns([1,2,1])
 
-        st.button("Click here to calculate the tax break!",on_click=set_state,args=[3])
+        st.button("Click here to calculate the tax break",on_click=set_state,args=[3])
 
         st.button('Go Back', on_click=set_state, args=[0])
 
@@ -266,7 +266,7 @@ Let’s find a tax rate to see how big that tax break would be.
 <p>
 {project} costs {project_cost_text}. Projects over $2 billion qualify it for a {tax_break_term} year tax break.
 
-We can estimate how much money schools and other local services could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -282,7 +282,7 @@ For projects under \$2 billion, owners have to pay some money back to schools, p
 <p>
 The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify it for a {tax_break_term} year tax break.
 
-We can estimate how much money schools and other local services could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -300,7 +300,7 @@ Even after this payment, by the end of the {tax_break_term}-year tax break, your
 <p>
 The {project_name_2} costs {project_cost_text}. Projects under $1 billion qualify it for a {tax_break_term} year tax break.
 
-We can estimate how much money schools and other local services could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
