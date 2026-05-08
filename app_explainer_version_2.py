@@ -192,11 +192,11 @@ Pick an example megaproject below or type in your own amount to get started.
     if st.session_state.stage >= 2:
         st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build.
 
-Normally that would add about \${base_eav:,.0f} in new taxable property.
+Normally that would add about \${added_eav:,.0f} in new taxable property.
 
 But the megaproject bill says very big projects — starting at $100 million — do not have to pay property taxes on new buildings for many years.
 
-That means <b><font style="background-color:#FFC107;">this ${base_eav:,.0f} would not be taxed in the first year alone.</font></b>
+That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} would not be taxed in the first year alone.</font></b>
 
 Now let’s find a tax rate to see how big the tax break would be.
 
