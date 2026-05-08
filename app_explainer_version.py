@@ -211,86 +211,88 @@ Below we'll show how much of a tax break the owners of this property will get.
 
 </h3>""",unsafe_allow_html=True)
 
-    st.markdown(f"""<h3>Lets take a closer look at the math.</h3>""",unsafe_allow_html=True)
+    if st.button("Click here to take a closer look at the math.",key="closer_look"):
+
+        st.markdown(f"""<h3>Lets take a closer look at the math.</h3>""",unsafe_allow_html=True)
 
 
-    if project_cost > 2_000_000_000:
-        st.markdown(f"""
-<p>
-{project} costs ${project_cost:,.0f}. This qualifies it for a {tax_break_term} year tax break.
+        if project_cost > 2_000_000_000:
+            st.markdown(f"""
+    <p>
+    {project} costs ${project_cost:,.0f}. This qualifies it for a {tax_break_term} year tax break.
 
-We can figure out the tax expenditure (the revenue lost) by multiplying your tax rate by the project's ${added_eav:,.0f} of added now tax-exempt property value.
+    We can figure out the tax expenditure (the revenue lost) by multiplying your tax rate by the project's ${added_eav:,.0f} of added now tax-exempt property value.
 
-In the first year your district will lose out on ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+    In the first year your district will lose out on ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
-At the end of the {tax_break_term} year tax break, your district will have lost ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}
+    At the end of the {tax_break_term} year tax break, your district will have lost ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}
 
-Projects under \$2 billion require the owner to reimburse local taxing bodies (like your school district). The bill calls this a "special payment", but it is more commonly known as a payment in lieu of taxes. But since your project is over $2 billion the owners are not required to make this "special payment".
+    Projects under \$2 billion require the owner to reimburse local taxing bodies (like your school district). The bill calls this a "special payment", but it is more commonly known as a payment in lieu of taxes. But since your project is over $2 billion the owners are not required to make this "special payment".
 
-</p>
-""",unsafe_allow_html=True)
+    </p>
+    """,unsafe_allow_html=True)
 
-    if project_cost < 2_000_000_000:
-        st.markdown(f"""
-<p>
-{project} costs ${project_cost:,.0f}. This qualifies it for a {tax_break_term} year tax break.
+        if project_cost < 2_000_000_000:
+            st.markdown(f"""
+    <p>
+    {project} costs ${project_cost:,.0f}. This qualifies it for a {tax_break_term} year tax break.
 
-We can figure out the tax expenditure (the revenue lost) by multiplying your tax rate by the project's ${added_eav:,.0f} of added now tax-exempt property value.
+    We can figure out the tax expenditure (the revenue lost) by multiplying your tax rate by the project's ${added_eav:,.0f} of added now tax-exempt property value.
 
-In the first year your district will lose out on ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+    In the first year your district will lose out on ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
-At the end of the {tax_break_term} year tax break, your district will have lost ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}
+    At the end of the {tax_break_term} year tax break, your district will have lost ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}
 
-The legislation requires the owner to give your district a little back. Projects under \$2 billion require the owner to make a "special payment" to local taxing bodies (like your school district). This "special payment" is more commonly known as a payment in lieu of taxes. The special payment starts at 10% of the property tax revenue prior to the development and grows with inflation over time.
+    The legislation requires the owner to give your district a little back. Projects under \$2 billion require the owner to make a "special payment" to local taxing bodies (like your school district). This "special payment" is more commonly known as a payment in lieu of taxes. The special payment starts at 10% of the property tax revenue prior to the development and grows with inflation over time.
 
-By the end of the {tax_break_term}, the owner would have paid your district ${df_project["Specail Payment (Cumulative)"].values[-1]:,.0f}. 
+    By the end of the {tax_break_term}, the owner would have paid your district ${df_project["Specail Payment (Cumulative)"].values[-1]:,.0f}. 
 
-Even with this payments your district will have lost ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}!
+    Even with this payments your district will have lost ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}!
 
-</p>
-""",unsafe_allow_html=True)
+    </p>
+    """,unsafe_allow_html=True)
 
-    st.markdown(f"""<h3>Tax a look at how the tax break growns over time</h3>""", unsafe_allow_html=True)
-    st.markdown(f"""<p>The chart shows the growth of the total revenue lost and the special payment (if one is required).</p>""", unsafe_allow_html=True)
-    
-# Animated chart
+        st.markdown(f"""<h3>Tax a look at how the tax break growns over time</h3>""", unsafe_allow_html=True)
+        st.markdown(f"""<p>The chart shows the growth of the total revenue lost and the special payment (if one is required).</p>""", unsafe_allow_html=True)
+        
+    # Animated chart
 
-    base = df_project[["Year", "Potential Tax Revenue (Cumulative)", "Special Payment (Cumulative)"]].copy()
-    base.columns = ["Year", "Potential Tax Revenue", "Special Payment"]
-    chart_data = base.melt(
-        id_vars="Year",
-        value_vars=["Potential Tax Revenue", "Special Payment"],
-        var_name="Category",
-        value_name="Amount"
-    )
-
-    frames = []
-    for t in base["Year"]:
-        temp = chart_data.copy()
-        temp["Frame"] = t
-        temp["Amount Displayed"] = temp.apply(
-            lambda r: r["Amount"] if r["Year"] <= t else 0,
-            axis=1
+        base = df_project[["Year", "Potential Tax Revenue (Cumulative)", "Special Payment (Cumulative)"]].copy()
+        base.columns = ["Year", "Potential Tax Revenue", "Special Payment"]
+        chart_data = base.melt(
+            id_vars="Year",
+            value_vars=["Potential Tax Revenue", "Special Payment"],
+            var_name="Category",
+            value_name="Amount"
         )
-        frames.append(temp)
 
-    anim_chart_data = pd.concat(frames, ignore_index=True)
+        frames = []
+        for t in base["Year"]:
+            temp = chart_data.copy()
+            temp["Frame"] = t
+            temp["Amount Displayed"] = temp.apply(
+                lambda r: r["Amount"] if r["Year"] <= t else 0,
+                axis=1
+            )
+            frames.append(temp)
 
-    fig = px.bar(
-        anim_chart_data,
-        x="Year",
-        y="Amount Displayed",
-        color="Category",
-        animation_frame="Frame",
-        barmode="group",
-        labels={"Amount Displayed": "Revenue"}
-    )
+        anim_chart_data = pd.concat(frames, ignore_index=True)
 
-    y_max = anim_chart_data["Amount Displayed"].max()
-    fig.update_layout(transition={"duration": 400}, xaxis={"dtick": 1}, legend=dict(y=1.1,orientation='h'))
-    fig.update_yaxes(range=[0, y_max * 1.05], tickprefix="$", separatethousands=True)
+        fig = px.bar(
+            anim_chart_data,
+            x="Year",
+            y="Amount Displayed",
+            color="Category",
+            animation_frame="Frame",
+            barmode="group",
+            labels={"Amount Displayed": "Revenue"}
+        )
 
-    st.plotly_chart(fig, use_container_width=True)
+        y_max = anim_chart_data["Amount Displayed"].max()
+        fig.update_layout(transition={"duration": 400}, xaxis={"dtick": 1}, legend=dict(y=1.1,orientation='h'))
+        fig.update_yaxes(range=[0, y_max * 1.05], tickprefix="$", separatethousands=True)
+
+        st.plotly_chart(fig, use_container_width=True)
 
     # Create field dicitionary
 
