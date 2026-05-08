@@ -256,7 +256,7 @@ Let’s find a tax rate to see how big that tax break would be.
 
 </h3>""",unsafe_allow_html=True)
 
-            if st.button("Click here to take a closer look at the math.",key="closer_look"):
+            if st.button("Click here to take a closer look at the math",key="closer_look"):
 
                 st.markdown(f"""<h3>A closer look at the math...</h3>""",unsafe_allow_html=True)
 
