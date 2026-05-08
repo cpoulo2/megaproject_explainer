@@ -200,7 +200,7 @@ That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} wou
 
 And that is just for one year. The lost money adds up over time.
 
-Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I owe you \$2 total.
+Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I owe you a total of \$2 tomorrow.
 
 This megaproject bill works the same way, but with tens of thousands of dollars over many years.
 
