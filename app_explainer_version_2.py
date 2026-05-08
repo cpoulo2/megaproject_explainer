@@ -190,7 +190,7 @@ Pick an example megaproject below or type in your own amount to get started.
 
 
     if st.session_state.stage >= 2:
-        st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build. This quali
+        st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build. This qualifies for a {tax_break_term} year tax break.
 
 Normally that would add about \${added_eav:,.0f} in new taxable property.
 
