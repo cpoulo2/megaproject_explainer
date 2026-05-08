@@ -270,7 +270,7 @@ We can estimate how much money your school district could miss out on by using y
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
-By the end of the {tax_break_term}-year tax break, your school district could lose about ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f} in total.
+By the end of the {tax_break_term}-year tax break, your school district could lose about ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
 For projects under \$2 billion, owners have to pay some money back to schools, parks, and other local services. But because your project costs more than \$2 billion, the owners do not have to make those payments.
 
@@ -290,7 +290,7 @@ Projects under \$2 billion have to pay some money back to schools, parks, and ot
 
 In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
 
-Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f} in total.
+Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
@@ -308,7 +308,7 @@ Projects under \$2 billion have to pay some money back to schools, parks, and ot
 
 In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
 
-Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f} in total.
+Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
