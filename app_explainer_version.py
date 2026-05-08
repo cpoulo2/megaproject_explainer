@@ -207,7 +207,7 @@ Below we'll show how much of a tax break the owners of this property will get.
     with st.container(horizontal_alignment="center",border=True):
 
         st.markdown(f"""<h4 style="text-align: center;">Calculation...</h4>
-<h3 style="text-align: center;">Your district will lose <font style="color:#D81B60;">${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.</font>
+<h3 style="text-align: center;">Your district will lose <font style="color:#D81B60;">${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}</font> over the {tax_break_term} year tax break.
 
 </h3>""",unsafe_allow_html=True)
 
@@ -245,7 +245,7 @@ Below we'll show how much of a tax break the owners of this property will get.
 
     The legislation requires the owner to give your district a little back. Projects under \$2 billion require the owner to make a "special payment" to local taxing bodies (like your school district). This "special payment" is more commonly known as a payment in lieu of taxes. The special payment starts at 10% of the property tax revenue prior to the development and grows with inflation over time.
 
-    By the end of the {tax_break_term}, the owner would have paid your district ${df_project["Specail Payment (Cumulative)"].values[-1]:,.0f}. 
+    By the end of the {tax_break_term}, the owner would have paid your district ${df_project["Special Payment (Cumulative)"].values[-1]:,.0f}. 
 
     Even with this payments your district will have lost ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}!
 
@@ -337,14 +337,6 @@ Below we'll show how much of a tax break the owners of this property will get.
             mime="application/vnd.ms-excel",
             icon=":material/download:"
         )
-
-    st.markdown(f"""<sub>
-<b>Notes</b>:
-
-1. Potential property tax revenue represents the amount legally allowable under the Property Tax Extension Law Limit (PTELL). For more information see the field dictionary in the downloadable Excel workbook below.
-
-2. If the project cost is greater than $2 billion then the special payment is not required in the current version of the legislation.</sub>
-""", unsafe_allow_html=True)
 
     st.markdown(f"""<sub>
 This calculator was built by the Illinois Federation of Teachers based on our best reading of the HB0910 Mega Project bill as-written. The calculator is intended to help municipalities, school districts, and the general public better understand the sweeping changes and impacts of the bill being rushed forward.  If you have any questions, comments, or concerns regarding the calculations, asssumptions, or data, please contact us as team@ift-aft.org.  
