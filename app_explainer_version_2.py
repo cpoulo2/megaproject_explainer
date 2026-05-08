@@ -225,8 +225,7 @@ Let’s find a tax rate to see how big that tax break would be.
 
         st.button("Click here to calculate the tax break!",on_click=set_state,args=[3])
 
-        st.button('Go Back', on_click=set_state, args=[1])
-
+        st.button('Go Back', on_click=set_state, args=[0])
 
 
     if st.session_state.stage >= 3:
