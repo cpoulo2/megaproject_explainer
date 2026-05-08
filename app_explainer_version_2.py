@@ -204,7 +204,7 @@ Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I ow
 
 This megaproject bill works the same way, but with millions or even billions of dollars over many years.
 
-Let’s find a tax rate to see how big that tax break would be.
+Let’s find a tax rate to see how big that tax break would be for {project_name}.
 
 </p>""",unsafe_allow_html=True)
         # Find Chicago Public Schools in index of df["District"].unique()
