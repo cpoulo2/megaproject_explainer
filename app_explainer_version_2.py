@@ -290,7 +290,7 @@ Projects under \$2 billion have to pay some money back to schools, parks, and ot
 
 In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
 
-Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
@@ -308,7 +308,7 @@ Projects under \$2 billion have to pay some money back to schools, parks, and ot
 
 In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
 
-Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
