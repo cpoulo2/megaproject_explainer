@@ -70,7 +70,7 @@ Follow the steps below to learn how it works.
 Pick an example megaproject below or type in your own amount to get started.
 
 </p>""",unsafe_allow_html=True)
-        project = st.selectbox("Pick a megaproject or enter a custom amount", ["Select one...","Google HQ","Amazon warehouse","McCaskeys’ Stadium for the Bears and Entertainment Center","Enter Custom Amount"],index=0,key="project",on_change=set_state,args=[2])
+        project = st.selectbox("Pick a megaproject or enter a custom amount", ["Select one...","Google headquarters","Amazon warehouse","McCaskeys’ Stadium for the Bears and Entertainment Center","Enter Custom Amount"],index=0,key="project",on_change=set_state,args=[2])
         
         if project == "Enter Custom Amount":
             project_name_for_text = "a custom project"
@@ -116,7 +116,7 @@ Pick an example megaproject below or type in your own amount to get started.
         equalization_factor = 1
 
     
-    if project == "Google HQ":
+    if project == "Google headquarters":
 
         # Initial project variables
 
@@ -126,7 +126,7 @@ Pick an example megaproject below or type in your own amount to get started.
         tax_revenue_year1 = base_eav*tax_rate
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate 
-        project_name = "a Google HQ"
+        project_name = "a Google headquarters"
         project_name_2 = project_name
             
     if project == "Amazon warehouse":
@@ -194,7 +194,7 @@ Pick an example megaproject below or type in your own amount to get started.
 
 Normally that would add about \${added_eav:,.0f} in new taxable property.
 
-But the megaproject bill says very big projects — starting at $100 million — do not have to pay property taxes on new buildings for many years.
+But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
 
 That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} would not be taxed in the first year alone.</font></b>
 
