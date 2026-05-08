@@ -1,4 +1,4 @@
-# Streamlit app to teach users how the Mega Project bill works. 
+# Streamlit app to teach users how the megaproject bill works. 
 
 # Created by: Christopher Poulos, Public Finance Analyst, Chicago Teachers Union
 # Contact: christopherpoulos@ctulocal1.org
@@ -47,7 +47,7 @@ def main():
 
     st.markdown("""<h1>Illinois Megaproject Tax Break Calculator</h1>""",unsafe_allow_html=True)
 
-    st.markdown("""<p>A new bill called the Megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
+    st.markdown("""<p>A new megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
 
 This tool helps explain how the tax break works and shows how much money your school district could lose.
 
@@ -65,7 +65,7 @@ Follow the steps below to learn how it works.
 
     if st.session_state.stage >= 1:
         st.markdown(f"""<h2>Step 1. Pick a megaproject.</h2>""",unsafe_allow_html=True)
-        st.markdown(f"""<p>The Megaproject Bill lets owners of very big building projects  — starting at $100 million — get a break on property taxes for the new buildings they add. Think things like a new corporate headquarters, a new stadium, or a new warehouse. 
+        st.markdown(f"""<p>The megaproject bill lets owners of very big building projects  — starting at $100 million — get a break on property taxes for the new buildings they add. Think things like a new corporate headquarters, a new stadium, or a new warehouse. 
         
 Pick an example megaproject below or type in your own amount to get started.
 
@@ -194,7 +194,7 @@ Pick an example megaproject below or type in your own amount to get started.
 
 Normally that would add about \${base_eav:,.0f} in new taxable property.
 
-But the Megaproject Bill says very big projects — starting at $100 million — do not have to pay property taxes on new buildings for many years.
+But the megaproject bill says very big projects — starting at $100 million — do not have to pay property taxes on new buildings for many years.
 
 That means <b><font style="background-color:#FFC107;">this ${base_eav:,.0f} would not be taxed in the first year alone.</font></b>
 
@@ -400,7 +400,7 @@ Even after this payment, by the end of the {tax_break_term}-year tax break, your
 
         st.markdown(f"""
 <sub>
-This calculator was built by the Illinois Federation of Teachers based on our best reading of the HB0910 Mega Project bill as-written. The calculator is intended to help municipalities, school districts, and the general public better understand the sweeping changes and impacts of the bill being rushed forward.  If you have any questions, comments, or concerns regarding the calculations, asssumptions, or data, please contact us as team@ift-aft.org.  
+This calculator was built by the Illinois Federation of Teachers based on our best reading of the megaproject bill (HB0910) as-written. The calculator is intended to help municipalities, school districts, and the general public better understand the sweeping changes and impacts of the bill being rushed forward.  If you have any questions, comments, or concerns regarding the calculations, asssumptions, or data, please contact us as team@ift-aft.org.  
 
 
 <b>Last updated</b>: 2026-05-07
