@@ -90,6 +90,7 @@ Pick an example megaproject below or type in your own amount to get started.
     county = st.session_state.get("county", "COOK")
     tax_rate = st.session_state.get("tax_rate", 0)
     project = st.session_state.get("project", "Select one...")
+    project_amount = 280_000_000
 
     # Defaults — overridden once user picks a project
     project_name = ""
@@ -198,13 +199,13 @@ Normally that would add about \${added_eav:,.0f} in new taxable property.
 
 But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
 
-That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b>
+That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b> That tax break is money into the bank of private owner of the project, because it is kept out of the budget of your school district. 
 
 And that is just for one year. The lost money adds up over time.
 
 Think of it this way: if I owe you \$1 today and then another \$1 tomorrow, then I will owe you a total of \$2 tomorrow.
 
-This megaproject bill works the same way, but with tens of thousands of dollars over many years. That's a big benefit that accrues to the private owner of the project.
+This megaproject bill works the same way, but with tens of thousands of dollars over many years.
 
 Let’s find a tax rate to see how big that tax break would be for {project_name}.
 
@@ -227,7 +228,7 @@ Let’s find a tax rate to see how big that tax break would be for {project_name
 
         st.button("Click here to calculate the tax break",on_click=set_state,args=[3])
 
-        st.button('Go Back', on_click=set_state, args=[0])
+        st.button('Go Back', on_click=set_state, args=[1])
 
 
     if st.session_state.stage >= 3:
