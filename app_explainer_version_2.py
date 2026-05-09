@@ -200,7 +200,7 @@ Normally that would add about \${added_eav:,.0f} in new taxable property.
 
 But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
 
-That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b> That tax break is money into the bank of private owner of the project, because it is kept out of the budget of your school district. 
+That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b> That is money into the bank of the private owner of the project, because it is kept out of the budget of your school district. 
 
 And that is just for one year. The lost money adds up over time.
 
