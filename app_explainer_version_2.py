@@ -80,7 +80,8 @@ Pick an example megaproject below or type in your own amount to get started.
                 value=280_000_000,
                 step=10_000_000,
                 format="%d",
-                help="Enter whole dollars only. They must be at least $100 million."
+                help="Enter whole dollars only. They must be at least $100 million.",
+                key="project_amount"
             )
             st.caption(f"Custom amount selected: ${int(project_amount):,}")
 
@@ -90,7 +91,7 @@ Pick an example megaproject below or type in your own amount to get started.
     county = st.session_state.get("county", "COOK")
     tax_rate = st.session_state.get("tax_rate", 0)
     project = st.session_state.get("project", "Select one...")
-    project_amount = 280_000_000
+    project_amount = st.session_state.get("project_amount", 280_000_000)
 
     # Defaults — overridden once user picks a project
     project_name = ""
