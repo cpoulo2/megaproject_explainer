@@ -47,9 +47,9 @@ def main():
 
     st.markdown("""<h1>Illinois Megaproject Tax Break Calculator</h1>""",unsafe_allow_html=True)
 
-    st.markdown("""<p>A new megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
+    st.markdown("""<p>A new megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, private owners of very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
 
-This tool helps explain how the tax break works and shows how much money your school district could lose.
+This tool helps explain how the tax break works and shows how much money your school district could miss out on because of the megaproject bill.
 
 Follow the steps below to learn how it works.
 </p>""",unsafe_allow_html=True)
@@ -159,6 +159,8 @@ Pick an example megaproject below or type in your own amount to get started.
 
         # Initial project variables
 
+        project = "custom porject"
+
         project_cost = project_amount
         project_cost_text = f"${project_cost:,.0f}"
         base_eav = project_cost*assessment_level*equalization_factor*.1 # Assigning 10% of project cost to acquistion amount
@@ -196,13 +198,13 @@ Normally that would add about \${added_eav:,.0f} in new taxable property.
 
 But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
 
-That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} would not be taxed.</font></b>
+That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b>
 
 And that is just for one year. The lost money adds up over time.
 
-Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I owe you a total of \$2 tomorrow.
+Think of it this way: if I owe you \$1 today and then another \$1 tomorrow, then I will owe you a total of \$2 tomorrow.
 
-This megaproject bill works the same way, but with tens of thousands of dollars over many years.
+This megaproject bill works the same way, but with tens of thousands of dollars over many years. That's a big benefit that accrues to the private owner of the project.
 
 Let’s find a tax rate to see how big that tax break would be for {project_name}.
 
