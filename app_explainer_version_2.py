@@ -169,7 +169,7 @@ Pick an example megaproject below or type in your own amount to get started.
 
         # Initial project variables
 
-        project = "custom porject"
+        project = "custom project"
 
         project_cost = project_amount
         project_cost_text = f"${project_cost:,.0f}"
@@ -206,15 +206,11 @@ Pick an example megaproject below or type in your own amount to get started.
 
 Normally that would add about \${added_eav:,.0f} in new taxable property.
 
-But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
+But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings. That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed</font></b>. That is money into the bank of the private owner of the project, because it is kept out of the budget of your school district. 
 
-That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b> That is money into the bank of the private owner of the project, because it is kept out of the budget of your school district. 
+And that is just for one year. Megaprojects qualify for tax breaks over many years. For instance, this project qualifies for a {tax_break_term} to {tax_break_term+5} year tax break.
 
-And that is just for one year. The lost money adds up over time.
-
-Think of it this way: if I owe you \$1 today and then another \$1 tomorrow, then I will owe you a total of \$2 tomorrow.
-
-This megaproject bill works the same way, but with tens of thousands of dollars over many years.
+That lost money adds up over time. 
 
 Let’s find a tax rate to see how big that tax break would be for {project_name}.
 
@@ -264,7 +260,7 @@ Let’s find a tax rate to see how big that tax break would be for {project_name
         with st.container(horizontal_alignment="center",border=True):
 
             st.markdown(f"""<h4 style="text-align: center;">Calculation...</h4>
-<h3 style="text-align: center;">Your district will lose <font style="color:#D81B60;">${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}</font> over the {tax_break_term} year tax break.
+<h3 style="text-align: center;">Your district will would miss out on <font style="color:#D81B60;">${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}</font> over the {tax_break_term} year tax break.
 
 </h3>""",unsafe_allow_html=True)
 
@@ -280,9 +276,13 @@ Let’s find a tax rate to see how big that tax break would be for {project_name
 
 We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
-In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+In the first year, your school district would miss out on about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
-By the end of the {tax_break_term}-year tax break, your school district could lose about ${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
+This money adds up over time.
+
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue (Inflated)"].values[1]:,.0f}.
+
+By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
 For projects under \$2 billion, owners have to pay some money back to schools, parks, and other local services. But because your project costs more than \$2 billion, the owners do not have to make those payments.
 
@@ -296,13 +296,17 @@ The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify
 
 We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
-In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+In the first year, your school district would miss out on about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
 Projects under \$2 billion have to pay some money back to schools, parks, and other local services. The bill calls this a "special payment."
 
-In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
+In the first year, your school district would get about \${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment. That means your district would still would miss out on out on \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f}.
 
-Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+This money adds up over time.
+
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
+
+By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
@@ -314,13 +318,17 @@ The {project_name_2} costs {project_cost_text}. Projects between $500 million an
 
 We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
-In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+In the first year, your school district would miss out on about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
 Projects under \$2 billion have to pay some money back to schools, parks, and other local services. The bill calls this a "special payment."
 
-In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
+In the first year, your school district would get about \${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment. That means your district would still would miss out on out on \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f}.
 
-Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+This money adds up over time.
+
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
+
+By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
@@ -332,19 +340,25 @@ The {project_name_2} costs {project_cost_text}. Projects between $100 million an
 
 We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
-In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+In the first year, your school district would miss out on about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
 Projects under \$2 billion have to pay some money back to schools, parks, and other local services. The bill calls this a "special payment."
 
-In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
+This money adds up over time.
 
-Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
+
+By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
 
                 st.markdown(f"""<h3>Take a look at how the tax break grows over time...</h3>""", unsafe_allow_html=True)
-                st.markdown(f"""<p>The chart shows the growth of the total revenue lost and the special payment (if one is required).</p>""", unsafe_allow_html=True)
+                st.markdown(f"""
+<p>The chart shows the growth of the revenue school districts miss out on in comparison to the special payment that, in some cases, private owners pay back in lieu of not paying taxes.
+
+Remember, the money missed out on is <b><font style="background-color:#FFC107;">cumulative</font></b>, which means it <font style="background-color:#FFC107;">adds up over time</font>. In the first year your district would miss out on \${df_project["Potential Tax Revenue (Inflated)"].values[0]:,.0f}. In the second year, your district would still be missing the \${df_project["Potential Tax Revenue (Inflated)"].values[0]:,.0f} from the first year, plus more money missed out on in the second year of the tax break: \${df_project["Potential Tax Revenue (Inflated)"].values[1]:,.0f}. This accumulates over the {tax_break_term}-year tax break. The chart shows the <b>cumulative potential revenue</b> and the <b>cumulative special payment</b> over the tax break term.   
+</p>""", unsafe_allow_html=True)
             
             # Animated chart
 
