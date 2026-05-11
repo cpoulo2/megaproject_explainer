@@ -47,9 +47,9 @@ def main():
 
     st.markdown("""<h1>Illinois Megaproject Tax Break Calculator</h1>""",unsafe_allow_html=True)
 
-    st.markdown("""<p>A new megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
+    st.markdown("""<p>A new megaproject bill (HB0910) is being talked about in Illinois' legislature right now. If it passes, private owners of very big building projects — costing $100 million or more — could get a big tax break for many years, sometimes up to 40 years.
 
-This tool helps explain how the tax break works and shows how much money your school district could lose.
+This tool helps explain how the tax break works and shows how much money your school district could miss out on because of the megaproject bill.
 
 Follow the steps below to learn how it works.
 </p>""",unsafe_allow_html=True)
@@ -88,7 +88,8 @@ Pick an example megaproject below or type in your own amount to get started.
                 value=280_000_000,
                 step=10_000_000,
                 format="%d",
-                help="Enter whole dollars only. They must be at least $100 million."
+                help="Enter whole dollars only. They must be at least $100 million.",
+                key="project_amount"
             )
             st.caption(f"Custom amount selected: ${int(project_amount):,}")
 
@@ -98,6 +99,7 @@ Pick an example megaproject below or type in your own amount to get started.
     county = st.session_state.get("county", "COOK")
     tax_rate = st.session_state.get("tax_rate", 0)
     project = st.session_state.get("project", "Select one...")
+    project_amount = st.session_state.get("project_amount", 280_000_000)
 
     # Defaults — overridden once user picks a project
     project_name = ""
@@ -135,7 +137,7 @@ Pick an example megaproject below or type in your own amount to get started.
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate 
         project_name = "a Google headquarters"
-        project_name_2 = project_name
+        project_name_2 = project
             
     if project == "Amazon warehouse":
 
@@ -148,7 +150,7 @@ Pick an example megaproject below or type in your own amount to get started.
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate
         project_name = "an Amazon warehouse"
-        project_name_2 = project_name
+        project_name_2 = project
 
     elif project == "McCaskeys’ Stadium for the Bears and Entertainment Center":
 
@@ -161,11 +163,13 @@ Pick an example megaproject below or type in your own amount to get started.
         added_eav = project_cost*assessment_level*equalization_factor
         added_eav_revenue_y1 = added_eav*tax_rate
         project_name = "the McCaskeys’ Stadium for the Bears and Entertainment Center"
-        project_name_2 = project_name
+        project_name_2 = project
 
     elif project == "Enter Custom Amount":
 
         # Initial project variables
+
+        project = "custom porject"
 
         project_cost = project_amount
         project_cost_text = f"${project_cost:,.0f}"
@@ -198,21 +202,21 @@ Pick an example megaproject below or type in your own amount to get started.
 
 
     if st.session_state.stage >= 2:
-        st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build. This quali
+        st.markdown(f"""<p>You picked {project_name}. This project costs {project_cost_text} to build.
 
 Normally that would add about \${added_eav:,.0f} in new taxable property.
 
 But the megaproject bill says very big projects like this do not have to pay property taxes on new buildings for many years.
 
-That means <b><font style="background-color:#FFC107;">this ${added_eav:,.0f} would not be taxed.</font></b>
+That means this <b><font style="color:#D81B60;">${added_eav:,.0f} of the {project} would not be taxed.</font></b> That is money into the bank of the private owner of the project, because it is kept out of the budget of your school district. 
 
 And that is just for one year. The lost money adds up over time.
 
-Think of it this way: if I owe you \$1 today and another \$1 tomorrow, then I owe you \$2 total.
+Think of it this way: if I owe you \$1 today and then another \$1 tomorrow, then I will owe you a total of \$2 tomorrow.
 
-This megaproject bill works the same way, but with millions or even billions of dollars over many years.
+This megaproject bill works the same way, but with tens of thousands of dollars over many years.
 
-Let’s find a tax rate to see how big that tax break would be.
+Let’s find a tax rate to see how big that tax break would be for {project_name}.
 
 </p>""",unsafe_allow_html=True)
         # Find Chicago Public Schools in index of df["District"].unique()
@@ -272,9 +276,9 @@ Let’s find a tax rate to see how big that tax break would be.
                 if project_cost > 2_000_000_000:
                     st.markdown(f"""
 <p>
-{project} costs {project_cost_text}. Projects over $2 billion qualify it for a {tax_break_term} year tax break.
+{project} costs {project_cost_text}. Projects over $2 billion qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -288,9 +292,9 @@ For projects under \$2 billion, owners have to pay some money back to schools, p
                 if project_cost > 1_000_000_000 and project_cost <= 2_000_000_000:
                     st.markdown(f"""
 <p>
-The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify it for a {tax_break_term} year tax break.
+The {project_name_2} costs {project_cost_text}. Projects over $1 billion qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -298,17 +302,17 @@ Projects under \$2 billion have to pay some money back to schools, parks, and ot
 
 In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
 
-Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
 
-                if project_cost >= 100_000_000 and project_cost < 1_000_000_000:
+                if project_cost > 500_000_000 and project_cost <= 1_000_000_000:
                     st.markdown(f"""
 <p>
-The {project_name_2} costs {project_cost_text}. Projects under $1 billion qualify it for a {tax_break_term} year tax break.
+The {project_name_2} costs {project_cost_text}. Projects between $500 million and $1 billion qualify for a {tax_break_term} year tax break.
 
-We can estimate how much money your school district could miss out on by using your tax rate and the part of the project that would normally be taxed.
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
 
 In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
 
@@ -316,7 +320,25 @@ Projects under \$2 billion have to pay some money back to schools, parks, and ot
 
 In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
 
-Even after this payment, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
+
+</p>
+""",unsafe_allow_html=True)
+
+                if project_cost >= 100_000_000 and project_cost <= 500_000_000:
+                    st.markdown(f"""
+<p>
+The {project_name_2} costs {project_cost_text}. Projects between $100 million and $500 million qualify for a {tax_break_term} year tax break.
+
+We can estimate how much money your school district could miss out on by applying your tax rate to the part of the project that would normally be taxed.
+
+In the first year, your school district could lose about ${df_project["Potential Tax Revenue Year 1"].values[0]:,.0f}.
+
+Projects under \$2 billion have to pay some money back to schools, parks, and other local services. The bill calls this a "special payment."
+
+In the first year, your school district would get about ${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment.
+
+Even after these payments, by the end of the {tax_break_term}-year tax break, your school district could still lose about ${df_project["Tax Expenditure (Cumulative)"].values[-1]:,.0f}.
 
 </p>
 """,unsafe_allow_html=True)
