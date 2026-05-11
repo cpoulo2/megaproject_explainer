@@ -304,7 +304,7 @@ In the first year, your school district would get about \${df_project["Special P
 
 This money adds up over time.
 
-In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue (Inflated)"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
 
 By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
@@ -326,7 +326,7 @@ In the first year, your school district would get about \${df_project["Special P
 
 This money adds up over time.
 
-In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue (Inflated)"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
 
 By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
@@ -348,7 +348,7 @@ In the first year, your school district would get about \${df_project["Special P
 
 This money adds up over time.
 
-In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
+In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue (Inflated)"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
 
 By the end of the {tax_break_term}-year tax break, your school district would miss out on about \${df_project["Potential Tax Revenue (Cumulative)"].values[-1]:,.0f}.
 
