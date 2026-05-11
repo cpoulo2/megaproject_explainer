@@ -357,7 +357,7 @@ By the end of the {tax_break_term}-year tax break, your school district would mi
 
                 st.markdown(f"""<h3>Take a look at how the tax break grows over time...</h3>""", unsafe_allow_html=True)
                 st.markdown(f"""
-<p>The chart shows the growth of the revenue school districts miss out on in comparison to the special payment that, in some cases, private owners pay back in lieu of not paying taxes.
+<p>The chart below compares the total revenue that your school district will miss out on over time to the special payment that, in some cases, private owners will pay back to your school district in lieu of not paying taxes.
 
 Remember, the money missed out on is <b><font style="background-color:#FFC107;">cumulative</font></b>, which means it <font style="background-color:#FFC107;">adds up over time</font>. In the first year your district would miss out on \${df_project["Potential Tax Revenue (Inflated)"].values[0]:,.0f}. In the second year, your district would still be missing the \${df_project["Potential Tax Revenue (Inflated)"].values[0]:,.0f} from the first year, plus more money missed out on in the second year of the tax break: \${df_project["Potential Tax Revenue (Inflated)"].values[1]:,.0f}. This accumulates over the {tax_break_term}-year tax break. The chart shows the <b>cumulative potential revenue</b> and the <b>cumulative special payment</b> over the tax break term.   
 </p>""", unsafe_allow_html=True)
