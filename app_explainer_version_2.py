@@ -344,6 +344,8 @@ In the first year, your school district would miss out on about ${df_project["Po
 
 Projects under \$2 billion have to pay some money back to schools, parks, and other local services. The bill calls this a "special payment."
 
+In the first year, your school district would get about \${df_project["Special Payment Year 1"].values[0]:,.0f} from this special payment. That means your district would still would miss out on out on \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f}.
+
 This money adds up over time.
 
 In the second year, your school district would still be missing the \${df_project["Potential Tax Revenue Year 1"].values[0] - df_project["Special Payment Year 1"].values[0]:,.0f} from the first year, plus more lost money from the second year of the tax break: \${df_project["Potential Tax Revenue Year 1"].values[1] - df_project["Special Payment Year 1"].values[1]:,.0f}.
