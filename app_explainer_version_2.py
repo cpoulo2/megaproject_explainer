@@ -60,6 +60,14 @@ Follow the steps below to learn how it works.
     def set_state(i):
         st.session_state.stage = i
 
+    # Add this helper
+    def go_back_to_stage_1():
+        st.session_state.stage = 1
+        st.session_state.project = "Select one..."   # must exactly match an option label
+        st.session_state.pop("district", None)
+        st.session_state.pop("tax_rate", None)
+        st.session_state.pop("county", None)
+
     if st.session_state.stage == 0:
         st.button('Click here to begin', on_click=set_state, args=[1])
 
@@ -225,7 +233,7 @@ Let’s find a tax rate to see how big that tax break would be.
 
         st.button("Click here to calculate the tax break",on_click=set_state,args=[3])
 
-        st.button('Go Back', on_click=set_state, args=[0])
+        st.button('Go Back', on_click=go_back_to_stage_1)
 
 
     if st.session_state.stage >= 3:
